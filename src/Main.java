@@ -5,21 +5,27 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st;
 
-        int kingCntRequired = 1 - Integer.parseInt(st.nextToken());
-        int queenCntRequired = 1 - Integer.parseInt(st.nextToken());
-        int rookCntRequired = 2 - Integer.parseInt(st.nextToken());
-        int bishopCntRequired = 2 - Integer.parseInt(st.nextToken());
-        int knightCntRequired = 2 - Integer.parseInt(st.nextToken());
-        int pawnCntRequired = 8 - Integer.parseInt(st.nextToken());
+        int a, b;
 
-        bw.write(String.valueOf(kingCntRequired) + " "
-                + String.valueOf(queenCntRequired) + " "
-                + String.valueOf(rookCntRequired) + " "
-                + String.valueOf(bishopCntRequired) + " "
-                + String.valueOf(knightCntRequired) + " "
-                + String.valueOf(pawnCntRequired));
+        while(true) {
+            st = new StringTokenizer(br.readLine());
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
+
+            if(a == 0 && b == 0) {
+                break;
+            }
+
+            if(a > b) {
+                bw.write("Yes");
+                bw.newLine();
+            }else {
+                bw.write("No");
+                bw.newLine();
+            }
+        }
 
         bw.flush();
         bw.close();
