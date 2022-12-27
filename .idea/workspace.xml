@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84d22004-0900-4171-9438-c7d4933a8e27" name="Changes" comment="1185">
+    <list default="true" id="84d22004-0900-4171-9438-c7d4933a8e27" name="Changes" comment="2292">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -43,7 +43,7 @@
       <workItem from="1668090299687" duration="3019000" />
       <workItem from="1668315358159" duration="6256000" />
       <workItem from="1671284022715" duration="5599000" />
-      <workItem from="1672143122295" duration="559000" />
+      <workItem from="1672143122295" duration="1572000" />
     </task>
     <task id="LOCAL-00001" summary="3003">
       <created>1667917122264</created>
@@ -73,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671290591391</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2292">
+      <created>1672143801481</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1672143801481</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +101,7 @@
     <MESSAGE value="3003" />
     <MESSAGE value="4101" />
     <MESSAGE value="1185" />
-    <option name="LAST_COMMIT_MESSAGE" value="1185" />
+    <MESSAGE value="2292" />
+    <option name="LAST_COMMIT_MESSAGE" value="2292" />
   </component>
 </project>

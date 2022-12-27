@@ -7,19 +7,17 @@ public class Main {
     static StringTokenizer st;
 
     public static void main(String[] args) throws IOException {
-        int N, res = 0, comp = 1;
+        int n, m, r;
 
         st = new StringTokenizer(br.readLine());
-        N = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        r = Integer.parseInt(st.nextToken());
 
-        while(true) {
-            if(N <= comp) {
-                break;
-            }
-            res += 1;
-            comp += 6 * res;
+        for(int i=0; i<n; i++) {
+            st = new StringTokenizer(br.readLine());
+
         }
-        bw.write(Integer.toString(res + 1));
 
         bw.flush();
         bw.close();
