@@ -71,24 +71,17 @@ public class Main {
         for(int i=0; i<n; i++) {
             int start = i;
             minDistArr = new int[n];
-            numTotalItemArr = new int[n];
             isArrived = new boolean[n];
 
-//            isArrived[i] = true;
             Arrays.fill(minDistArr, 999999);
             minDistArr[i] = 0;
-            numTotalItemArr[i] = tArr[i];
 
             while(true) {
                 for(Node node : graph.get(start)) {
                     if(!isArrived[node.getIdx()]) {
-                        minDistArr[node.getIdx()] = minDistArr[start] + node.getCost();     //간선의 비용
-//                        if(minDistArr[node.getIdx()] == 999999) {
-//                            minDistArr[node.getIdx()] = numTotalItemArr[start] + node.getCost();     //간선의 비용
-//                        }else {
-//                            minDistArr[node.getIdx()] += node.getCost();     //간선의 비용
-//                        }
-                        numTotalItemArr[node.getIdx()] = numTotalItemArr[start] + tArr[node.getIdx()];    //아이템 갯수
+                        if(minDistArr[node.getIdx()] > minDistArr[start] + node.getCost() ) {
+                            minDistArr[node.getIdx()] = minDistArr[start] + node.getCost();     //간선의 비용
+                        }
                     }
                 }
                 
@@ -106,19 +99,24 @@ public class Main {
                     }
                 }
                 start = nextStartNode;
-                for(int j=0; j<n; j++) {
-                    if(minDistArr[j] <= m && result < numTotalItemArr[j]) {    //갈 수 있는 m 내에서 가장 큰 값을 result 저장
-                        result = numTotalItemArr[j];
-                    }
-                }
-                if(nextStartNode == -1) {   //모든 노드 탐방 완료
+                if(nextStartNode == 999) {   //모든 노드 탐방 완료
                     break;
                 }
+            }
+            int currentTempResult = 0;
+            for(int j=0; j<n; j++) {
+                if(minDistArr[j] <= m) {    //갈 수 있는 m 내에서 가장 큰 값을 result 저장
+                    currentTempResult += tArr[j];
+                }
+            }
+
+            if(result < currentTempResult) {
+                result = currentTempResult;
             }
 
 
         }
-
+        bw.write(Integer.toString(result));
 
         bw.flush();
         bw.close();
