@@ -34,89 +34,79 @@ public class Main {
         }
     }
     public static void main(String[] args) throws IOException {
-        int n, m, r, result = 0;
-        int [] tArr;
-        int [] minDistArr, numTotalItemArr;  //최단거리, 총 아이템 갯수
-        boolean [] isArrived;               //노드에 왔었는지 확인
+        int V, E, begin;
+        int [] resArr;
+        boolean [] isArrived;
         ArrayList<ArrayList<Node>> graph = new ArrayList<>();
 
         st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        m = Integer.parseInt(st.nextToken());
-        r = Integer.parseInt(st.nextToken());
+        V = Integer.parseInt(st.nextToken());
+        E = Integer.parseInt(st.nextToken());
+        isArrived = new boolean[V];
+        resArr = new int[V];
 
-        tArr = new int[n];
-        for(int i=0; i<n; i++) {   //0 ~ N-1까지 N개의 ArrayList 생성
+        st = new StringTokenizer(br.readLine());
+        begin = Integer.parseInt(st.nextToken()) - 1;
+
+        for(int i=0; i<V; i++) {
             graph.add(new ArrayList<Node>());
         }
 
-        st = new StringTokenizer(br.readLine());
-        for(int i=0; i<n; i++) {   //tArr[1] ~ tArr[n] 초기화
-            tArr[i] = Integer.parseInt(st.nextToken());
-        }
+        for(int i=0; i<E; i++) {
+            int u, v, w;
 
-        for(int i=0; i<r; i++) {
             st = new StringTokenizer(br.readLine());
+            u = Integer.parseInt(st.nextToken());
+            v = Integer.parseInt(st.nextToken());
+            w = Integer.parseInt(st.nextToken());
 
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            int l = Integer.parseInt(st.nextToken());
-
-            graph.get(a-1).add(new Node(b-1, l));
-            graph.get(b-1).add(new Node(a-1, l));
+            graph.get(u - 1).add(new Node(v - 1, w));
         }
 
-        ///////////////
+        Arrays.fill(resArr, -1);
+        resArr[begin] = 0;
 
-        for(int i=0; i<n; i++) {
-            int start = i;
-            minDistArr = new int[n];
-            isArrived = new boolean[n];
-
-            Arrays.fill(minDistArr, 999999);
-            minDistArr[i] = 0;
-
-            while(true) {
-                for(Node node : graph.get(start)) {
-                    if(!isArrived[node.getIdx()]) {
-                        if(minDistArr[node.getIdx()] > minDistArr[start] + node.getCost() ) {
-                            minDistArr[node.getIdx()] = minDistArr[start] + node.getCost();     //간선의 비용
-                        }
+        while(true) {
+            for(Node node: graph.get(begin)) {
+                if(resArr[node.getIdx()] == -1) {
+                    resArr[node.getIdx()] = resArr[begin] + node.getCost();
+                }else {
+                    if(resArr[node.getIdx()] > resArr[begin] + node.getCost()) {    //기존 경로보다 현재 경로가 짧을 때
+                        resArr[node.getIdx()] = resArr[begin] + node.getCost();
                     }
                 }
-                
-                isArrived[start] = true;
-                int nextStartNode = 999;   //다음에 갈 곳
 
-                for(int j=0; j<n; j++) {
-                    if(!isArrived[j]) {
-                        if(nextStartNode == 999) {
-                            nextStartNode = j;
-                        }
-                        if(minDistArr[nextStartNode] > minDistArr[j]) {
-                            nextStartNode = j;
-                        }
+            }
+            isArrived[begin] = true;
+
+            int nextStartNode = -1;
+            for(int i=0; i<V; i++) {
+                if(!isArrived[i] && resArr[i] != -1 && nextStartNode == -1) {
+                    nextStartNode = i;
+                }else {
+                    if(!isArrived[i] && resArr[i] != -1 && resArr[nextStartNode] > resArr[i]) {
+                        nextStartNode = i;
                     }
                 }
-                start = nextStartNode;
-                if(nextStartNode == 999) {   //모든 노드 탐방 완료
-                    break;
-                }
-            }
-            int currentTempResult = 0;
-            for(int j=0; j<n; j++) {
-                if(minDistArr[j] <= m) {    //갈 수 있는 m 내에서 가장 큰 값을 result 저장
-                    currentTempResult += tArr[j];
-                }
             }
 
-            if(result < currentTempResult) {
-                result = currentTempResult;
+            begin = nextStartNode;
+
+            if(nextStartNode == -1) {
+                break;
             }
-
-
         }
-        bw.write(Integer.toString(result));
+
+        for(int i=0; i<V; i++) {
+            if(resArr[i] != -1) {
+                bw.write(Integer.toString(resArr[i]));
+                bw.newLine();
+            }else {
+                bw.write("INF");
+                bw.newLine();
+            }
+        }
+
 
         bw.flush();
         bw.close();

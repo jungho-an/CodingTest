@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84d22004-0900-4171-9438-c7d4933a8e27" name="Changes" comment="14938">
+    <list default="true" id="84d22004-0900-4171-9438-c7d4933a8e27" name="Changes" comment="14938 - Clear">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -47,7 +47,7 @@
       <workItem from="1672389250435" duration="10450000" />
       <workItem from="1672400734373" duration="43000" />
       <workItem from="1672461706877" duration="1069000" />
-      <workItem from="1672465367989" duration="3496000" />
+      <workItem from="1672465367989" duration="11684000" />
     </task>
     <task id="LOCAL-00001" summary="3003">
       <created>1667917122264</created>
@@ -98,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672400751055</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="14938 - Clear">
+      <created>1672469092022</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1672469092022</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,15 +128,26 @@
     <MESSAGE value="1185" />
     <MESSAGE value="2292" />
     <MESSAGE value="14938" />
-    <option name="LAST_COMMIT_MESSAGE" value="14938" />
+    <MESSAGE value="14938 - Clear" />
+    <option name="LAST_COMMIT_MESSAGE" value="14938 - Clear" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="8" />
+          <line>92</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
