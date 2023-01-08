@@ -61,6 +61,8 @@ public class Main {
             graph.get(A - 1).add(new Node(B - 1, T));
         }
 
+        //////////
+
         int begin = 0;
         while(true) {
             Arrays.fill(tArr, -1);
