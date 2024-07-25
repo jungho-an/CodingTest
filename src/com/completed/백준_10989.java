@@ -1,8 +1,5 @@
-package com.in.progress;
+package com.completed;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.StringTokenizer;
 
 public class 백준_10989 {
@@ -10,6 +7,8 @@ public class 백준_10989 {
     private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     private static StringTokenizer st;
     public static void main(String[] args) throws IOException {
+    	long startTime = System.currentTimeMillis();
+    	
     	int N;
     	int cntArr[];
     	int tmp = 0;
@@ -18,7 +17,8 @@ public class 백준_10989 {
     	N = Integer.parseInt(st.nextToken());
     	
     	//cntArr[1] ~ cntArr[N]배열에 수의 갯수 받음 (cntArr[0]은 헷갈리니 제외)
-    	cntArr = new int[N + 1];
+    	//cntArr = new int[N + 1];	//이게 아니라 ( ArrayIndexOutOfBounds 에러발생.. )
+    	cntArr = new int[10001];	//수가 1 ~ 10,000이므로 이렇게 해야 함
     	
     	for (int i = 0; i < N; i++) {
     		st = new StringTokenizer(br.readLine());
@@ -38,11 +38,14 @@ public class 백준_10989 {
 				bw.newLine();
 			}
 		}
-    	//ArrayIndexOutOfBounds 에러발생.. 하지만 잘래.. 피고내..
+    	
     	bw.flush();
     	
     	br.close();
     	bw.close();
     	
+    	long endTime = System.currentTimeMillis(); 
+    	long secDiffTime = (endTime - startTime)/1000;
+    	System.out.println("수행시간(m) : "+secDiffTime);
     }
 }
