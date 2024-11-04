@@ -23,7 +23,7 @@ public class 백준_10989 {
     	for (int i = 0; i < N; i++) {
     		st = new StringTokenizer(br.readLine());
     		tmp = Integer.parseInt(st.nextToken());
-    		cntArr[tmp]++;
+    		cntArr[tmp]++; 
 		}
     	
     	for (int i = 1; i < cntArr.length; i++) {
